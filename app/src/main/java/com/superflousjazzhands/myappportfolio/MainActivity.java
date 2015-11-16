@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity {
 
     Button spotifyStreamerButton;
@@ -40,12 +43,11 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        spotifyStreamerButton.setOnClickListener(onClickListener);
-        scoresAppButton.setOnClickListener(onClickListener);
-        libraryAppButton.setOnClickListener(onClickListener);
-        buildItBiggerAppButton.setOnClickListener(onClickListener);
-        xyzReaderButton.setOnClickListener(onClickListener);
-        capstoneAppButton.setOnClickListener(onClickListener);
+        ArrayList<Button> buttons = new ArrayList<>(Arrays.asList(spotifyStreamerButton, scoresAppButton,
+                libraryAppButton, buildItBiggerAppButton, xyzReaderButton, capstoneAppButton));
+        for (Button button : buttons) {
+            button.setOnClickListener(onClickListener);
+        }
     }
 
     private void createToast(Button button){
